@@ -1,0 +1,55 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% load static %}
+<div id="layoutSidenav_content">
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header"><h3 class="text-center font-weight-light my-4">Add Patient</h3></div>
+                                <div class="card-body">
+                                    <form action="" method="post" name="addForm">
+                                        {% csrf_token %}
+                                        <dl class="row">
+                                            <dt class="col-6">Full Name</dt>
+                                            <dd class="col-6"><input type="text" oninput="validateName()" name="name" required></dd>
+                                            <ul hidden id="nameError">
+                                                <li class="message" hidden id="nameError"></li>
+                                            </ul>
+                                            <dt class="col-6">E-Mail</dt>
+                                            <dd class="col-6"><input type="text" oninput="validateEmail()" name="email"></dd>
+                                            <ul hidden id="emailError">
+                                                <li class="message" hidden id="emailError"></li>
+                                            </ul>
+                                            <dt class="col-6">Birth Date</dt>
+                                            <dd class="col-6"><input type="date" name="birthdate" required></dd>
+                                            <dt class="col-6">Phone No.</dt>
+                                            <dd class="col-6"><input type="text" oninput="validateNumber()" name="phoneno" required></dd>
+                                            <ul hidden id="numberError">
+                                                <li class="message" hidden id="numberError"></li>
+                                            </ul>
+                                            {% if messages %}
+                                            <ul class="px-4">
+                                            {% for message in messages %}
+                                                <li class="message">{{message}}</li>
+                                            {% endfor %}
+                                            </ul>
+                                            {% endif %}
+                                            <dt class="col-2"><input type="submit" name="" id=""></dt>
+                                        </dl>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>  
+{% endblock content %}
