@@ -376,7 +376,7 @@ def get_prediction(request, id):
 # passes image through image segmentation and image prediction
 def status(path):
     # try:
-    name = f'{BASE_DIR}\\media\\scans\\' + str(path)
+    name = f'{BASE_DIR}/media/scans/' + str(path)
     img = sitk.ReadImage(name, sitk.sitkUInt8)
     cnn_model = Model()
     np_image = sitk.GetArrayFromImage(img)
